@@ -1,97 +1,140 @@
-<<<<<<< HEAD
-# Bookstore MERN App
+SchreenShots->
+<img width="955" height="419" alt="image" src="https://github.com/user-attachments/assets/9114abac-3e49-46a3-97a8-167ebc5b3a57" />
+<img width="960" height="420" alt="image" src="https://github.com/user-attachments/assets/aa99920f-7424-4dab-b9e8-0adbe8fbb5ab" />
+<img width="947" height="425" alt="image" src="https://github.com/user-attachments/assets/274c9d40-b82b-437c-a8e1-a212e3ba2bbe" />
 
-A simple bookstore management app built with:
 
-- React + Vite on the frontend
-- Express + MongoDB on the backend
 
-Users can:
+# 📚 Bookstore MERN App
 
-- View all books
-- Switch between table and card layouts
-- Create a book
-- View book details
-- Edit a book
-- Delete a book
+A modern full-stack bookstore manager built with **React**, **Vite**, **Express**, **MongoDB**, and **Mongoose**.
 
-## Project structure
+It lets you quickly manage books with a simple, responsive interface and a lightweight REST API.
+
+---
+
+## ✨ Features
+
+- View all books in **table** or **card** layout
+- Add a new book
+- View detailed book information
+- Edit existing books
+- Delete books
+- Toast notifications for success/error feedback
+- Client-side routing with React Router
+- REST API with full CRUD support
+
+---
+
+## 🧰 Tech Stack
+
+| Frontend | Backend | Database | UI / Utilities |
+|---|---|---|---|
+| React 19 | Express 5 | MongoDB | Tailwind CSS |
+| Vite | Mongoose 9 |  | Axios |
+| React Router DOM | Node.js |  | Notistack |
+| React Icons |  |  |  |
+
+---
+
+## 📁 Project Structure
 
 ```text
 bookstore/
 ├─ backend/
-└─ frontend/
+│  ├─ index.js
+│  ├─ config.js
+│  ├─ models/
+│  └─ routes/
+├─ frontend/
+│  ├─ src/
+│  ├─ public/
+│  └─ vite.config.js
+├─ README.md
+└─ .gitignore
 ```
 
-## Requirements
+---
 
-- Node.js 18+
-- MongoDB running locally, or a MongoDB connection string
-- npm
+## 🚀 Getting Started
 
-## Backend setup
+### 1) Clone the repository
 
-The backend listens on port `5555`.
+```bash
+git clone <your-repo-url>
+cd bookstore
+```
 
-### Install dependencies
+### 2) Install dependencies
+
+Install backend and frontend dependencies separately:
 
 ```bash
 npm install --prefix backend
+npm install --prefix frontend
 ```
 
-### Run the backend
+---
+
+## ▶️ Run the App
+
+### Start the backend
 
 ```bash
 npm --prefix backend start
 ```
 
-### Optional development mode
-
-```bash
-npm --prefix backend run dev
-```
-
-### Environment variables
-
-The backend reads:
-
-- `MONGO_URL` — MongoDB connection string
-
-If `MONGO_URL` is not set, it defaults to:
+Backend runs on:
 
 ```text
-mongodb://127.0.0.1:27017/bookstore
+http://localhost:5555
 ```
 
-## Frontend setup
-
-The frontend uses Vite and runs on port `5173` by default.
-
-### Install dependencies
-
-```bash
-npm install --prefix frontend
-```
-
-### Run the frontend
+### Start the frontend
 
 ```bash
 npm --prefix frontend run dev
 ```
 
-If you want to force the host used during development:
+Frontend runs on:
+
+```text
+http://127.0.0.1:5173
+```
+
+If needed, you can force the host:
 
 ```bash
 npm --prefix frontend run dev -- --host 127.0.0.1
 ```
 
-### Build for production
+---
+
+## 🧪 Build for Production
 
 ```bash
 npm --prefix frontend run build
 ```
 
-## API routes
+---
+
+## 🔧 Environment Variables
+
+The backend uses the following environment variable:
+
+| Variable | Description | Default |
+|---|---|---|
+| `MONGO_URL` | MongoDB connection string | `mongodb://127.0.0.1:27017/bookstore` |
+
+Example:
+
+```bash
+MONGO_URL=mongodb://127.0.0.1:27017/bookstore
+```
+
+---
+
+## 🛠️ Backend API
 
 Base URL:
 
@@ -100,19 +143,27 @@ http://localhost:5555/books
 ```
 
 ### `GET /books`
+Get all books.
 
-Returns all books.
+**Response**
+```json
+{
+  "count": 2,
+  "data": []
+}
+```
+
+---
 
 ### `GET /books/:id`
+Get a single book by ID.
 
-Returns a single book by ID.
+---
 
 ### `POST /books`
+Create a new book.
 
-Creates a new book.
-
-Required body fields:
-
+**Request body**
 ```json
 {
   "title": "Atomic Habits",
@@ -121,45 +172,80 @@ Required body fields:
 }
 ```
 
+---
+
 ### `PUT /books/:id`
+Update an existing book.
 
-Updates an existing book.
-
-### `DELETE /books/:id`
-
-Deletes a book.
-
-## Frontend pages
-
-- `/` — books list
-- `/books/create` — create book form
-- `/books/details/:id` — book details
-- `/books/edit/:id` — edit book form
-- `/books/delete/:id` — delete confirmation
-
-## Notes
-
-- The frontend uses `react-router-dom` for routing.
-- The app uses `notistack` for toast notifications.
-- The backend uses Mongoose timestamps, so created and updated times are available on book records.
-
-## Troubleshooting
-
-### Frontend says dependencies are missing
-
-Make sure the frontend dependencies are installed:
-
-```bash
-npm install --prefix frontend
+**Request body**
+```json
+{
+  "title": "Atomic Habits Updated",
+  "author": "James Clear",
+  "publishYear": 2020
+}
 ```
 
-### Backend cannot connect to MongoDB
+---
 
-Check that MongoDB is running locally, or set `MONGO_URL` to a valid connection string.
+### `DELETE /books/:id`
+Delete a book by ID.
 
-### Pages fail on refresh
+---
 
-The frontend must be served through Vite or a compatible static server because it uses client-side routing.
-=======
-# Book-Store_MERN
->>>>>>> 65f5befd53e42e763ea37a98262755dd1d568501
+## 🖥️ Frontend Pages
+
+| Route | Page |
+|---|---|
+| `/` | Book list |
+| `/books/create` | Create book |
+| `/books/details/:id` | Book details |
+| `/books/edit/:id` | Edit book |
+| `/books/delete/:id` | Delete book |
+
+---
+
+## 🎨 UI Highlights
+
+- Clean layout with a toggle between **table** and **card** views
+- Icon-based actions for quick book management
+- Modal preview for compact book details
+- Responsive components for smaller screens
+
+---
+
+## ✅ Verification
+
+This project was verified with:
+
+- `npm --prefix frontend run build`
+- `npm --prefix backend start`
+- `npm --prefix frontend run dev -- --host 127.0.0.1`
+
+The app was confirmed to load successfully in the browser.
+
+---
+
+## 🧹 Git Ignore
+
+The repository ignores:
+
+- `node_modules/`
+- build output
+- log files
+- environment files
+- editor/system artifacts
+
+---
+
+## 📌 Notes
+
+- The frontend uses `react-router-dom` for page routing.
+- The frontend uses `notistack` for notifications.
+- The backend uses Mongoose timestamps for `createdAt` and `updatedAt`.
+
+---
+
+## 📜 License
+
+This project is provided as-is for learning and development purposes.
