@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Bookstore MERN App
 
 A simple bookstore management app built with:
@@ -159,3 +160,6 @@ Check that MongoDB is running locally, or set `MONGO_URL` to a valid connection 
 ### Pages fail on refresh
 
 The frontend must be served through Vite or a compatible static server because it uses client-side routing.
+=======
+# Book-Store_MERN
+>>>>>>> 65f5befd53e42e763ea37a98262755dd1d568501
